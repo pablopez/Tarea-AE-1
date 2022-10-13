@@ -89,4 +89,3 @@ export function resetShop(all = false){
     document.getElementById("item_name").focus();
     document.getElementById("item_button").disabled = true;
 }
-
