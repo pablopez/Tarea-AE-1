@@ -49,19 +49,21 @@ function updateCartList(){
 
 function getItemForCartList(item){
     let new_item = document.createElement("div");
-    let actions = document.createElement("div");
+    let increase_act = document.createElement("div");
+    let item_cont = document.createElement("div");
     let item_name = document.createElement("span");
-    
-    let quant =  item.units > 1? `x${item.units}` : "";
 
     new_item.className = "cartList__element";
     item_name.className = "cartList__element__name";
-    actions.className = "cartList__element__actions";
-
-    item_name.innerHTML = `${item.name} x${item.units}`
-
-    actions.append(getRemoveBtn(item.name), getIncreaseBtn(item, 1),getIncreaseBtn(item, -1));
-    new_item.append(item_name, actions);
+    increase_act.className = "cartList__element__actions";
+    if(item.units > 1){
+        item_name.innerHTML = `${item.name} (${item.units} unidades)`;
+    }else{
+        item_name.innerHTML = `${item.name} (${item.units} unidad)`;
+    }    
+    item_cont.append(getRemoveBtn(item.name),item_name);
+    increase_act.append(getIncreaseBtn(item, 1),getIncreaseBtn(item, -1));
+    new_item.append(item_cont, increase_act);
 
     return new_item;
 }
@@ -69,12 +71,12 @@ function getItemForCartList(item){
 function getIncreaseBtn(item, cant){
     let itemname = item.name;
     let btn = document.createElement("button");
+    btn.classList.add("cartList__element__actionbtn")
     if(cant > 0){
-        btn.className = "cartList__element__actions__increase";
+        btn.classList.add("cartList__element__actionbtn-increase")
     }else{
-        btn.className = "cartList__element__actions__decrease";       
+        btn.classList.add("cartList__element__actionbtn-decrease")
     }
-    btn.innerHTML = cant;
     btn.addEventListener('click',()=>{
         Object.keys(shopping_list).forEach(item_name=>{
             if(shopping_list[item_name]["name"] == itemname){
@@ -92,8 +94,7 @@ function getIncreaseBtn(item, cant){
 
 function getRemoveBtn(itemname){
     let btn = document.createElement("button");
-    btn.className = "cartList__element__actions__remove";
-    btn.innerHTML = "eliminar";
+    btn.classList.add("cartList__element__actionbtn", "cartList__element__actionbtn-remove")
     btn.addEventListener('click',()=>{
         Object.keys(shopping_list).forEach(item_name=>{
             if(shopping_list[item_name]["name"] == itemname){
@@ -171,7 +172,7 @@ function printFormPay(with_card = true){
     form_actions.append(reset_form);    
 
     form.classList.add("shopForm");
-    form.classList.add("shopForm-addItem");
+    form.classList.add("shopForm-payItems");
 
     
     form.append(form_actions);
