@@ -1,11 +1,14 @@
 *{
     font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
 }
 #app{
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
+
+/* estilo del formulario de combra*/
 .shopForm{
     width: 25rem;
     padding: 0.5rem;            
@@ -15,33 +18,39 @@
 }
 .shopForm-addItem{background-color: rgb(224, 223, 223);}
 .shopForm-payItems{background-color: rgb(255, 176, 176);}
-
 .shopForm .shopForm__attr:first-child{margin: 0 0 0.5rem 0 !important;}
 .shopForm .shopForm__attr:last-child{margin: 0.5rem 0 0 0 !important;}
+    .shopForm__attr{
+        width: 100%;
+        margin: 0.5rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .shopForm__attr-error{
+        outline: 0.1rem solid red;
+        border-radius: 0.1rem;
+    }
+    .shopForm__attr-error[type="checkbox"]{
+        outline: none;
+    }
+    .shopForm__actions{
+        width: 100%;
+        margin: 0.2rem 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 
-.shopForm__attr{
-    width: 100%;
-    margin: 0.5rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.shopForm__attr-error{
-    outline: 0.1rem solid red;
-    border-radius: 0.1rem;
-}
-.shopForm__attr-error[type="checkbox"]{
-    outline: none;
-}
+/* estilo de la lista de la compra*/
+.cartList{}
+    .cartList__element{}
+        .cartList__element__actions{}
+            .cartList__element__actions__increase{}
+            .cartList__element__actions__decrease{}
+            .cartList__element__actions__remove{}
 
-.shopForm__actions{
-    width: 100%;
-    margin: 0.2rem 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
+/* estilos de los avisos*/
 .appAdvice{
     position: absolute; 
     font-size: 0.3rem;
@@ -50,7 +59,7 @@
     display: flex;
     justify-content: flex-end;
 }
-.appAdvice>span{    font-size: 0.8rem;}
+.appAdvice>span{font-size: 0.8rem;}
 .appAdvice-log{color: green;}
 .appAdvice-error{color: red;}
 
