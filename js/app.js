@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 function start(){
     let container = document.getElementById("app");
     container.append(getForm()); // añade el formulario de añadir objeto
-    container.append(shopMenu()); // añade la parte de ver la lisa y comprar
+    container.append(shopMenu()); // añade la parte de ver la lista y comprar
 }
 
 export function getForm(){
@@ -18,7 +18,7 @@ export function getForm(){
     let item_name = addShopFormAttr({"name": "item_name", "id": "item_name", "type":"text", "label": "Nombre del Artículo:", "value":""});
     let item_price = addShopFormAttr({"name": "item_price", "id": "item_price", "type":"text", "label": "Precio del Artículo:", "value":""});
     let item_units = addShopFormAttr({"name": "item_units", "id": "item_units", "type":"number", "label": "Unidades:", "value":1});
-    let submit_btn = addShopFormAttr({"name": "item_units", "id": "item_units", "type":"submit", "value":"Añadir al carrito", "disabled":true});
+    let submit_btn = addShopFormAttr({"name": "item_button", "id": "item_button", "type":"submit", "value":"Añadir al carrito", "disabled":true});
 
     form.id = "add_item_form";
     // añade las acciones cuando cambia el campo del formulario
@@ -87,5 +87,6 @@ export function resetShop(all = false){
     document.getElementById("item_units").value = 1;
     document.getElementById("item_name").value = "";
     document.getElementById("item_name").focus();
+    document.getElementById("item_button").disabled = true;
 }
 

@@ -4,7 +4,7 @@ export function string2html(str){
    return doc.body;
 }
 
-//esta function añade elementos de dentro de formulari con su label
+//esta función añade elementos de dentro de formulario con su label
 export function addShopFormAttr(values){
     let cont = document.createElement("div"); 
     let input = document.createElement("input");

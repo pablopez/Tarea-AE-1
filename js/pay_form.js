@@ -62,8 +62,8 @@ function payMethodSel(){
     method_sel.innerHTML = `
     <label for="item_list_total">Forma de pago: </label>
     <select name="" id="pay_method_sel">
-        <option value="card" default>tarjeta</option>
-        <option value="cash">efectivo</option>
+        <option name = "Tarjeta" value="card" default>tarjeta</option>
+        <option name = "Efectivo" value="cash">efectivo</option>
     </select>`;
     method_sel.querySelector("#pay_method_sel").addEventListener("change",()=>{
         document.getElementById("pay_form_cont").innerHTML = "";
@@ -112,7 +112,7 @@ function printFormPay(with_card = true){
     submit_btn.innerHTML = "Imprimir";
     submit_btn.disabled = true;
 
-    reset_form.innerHTML = "restablecer";
+    reset_form.innerHTML = "Restablecer";
     reset_form.type = "button";
     reset_form.addEventListener("click", ()=>{resetShop(true);})
 
@@ -135,9 +135,10 @@ function printFormPay(with_card = true){
 
 var checkCardName = function(element){
     let value = element.value;
+
     //si no tiene nombre da error
     if(value == ""){
-        showError(element, "debe de introducir el artículo", "add_item_form");
+        showError(element, "debe de introducir el nombre", "add_item_form");
         return;
     }else{
         cleanError(element, "add_item_form");
@@ -147,7 +148,7 @@ var checkCardName = function(element){
 
 var checkCCV = function(element){    
     let value = element.value;
-    //si no tiene nombre da error      
+    //si no son exactamente 3 números, da error  
     if(value.length != 3){            
         showError(element, "debe introducir tres numeros", "pay_form");
         return;
@@ -165,12 +166,18 @@ var checkCCV = function(element){
 
 var checkCardNumber = function(element){    
     let value = element.value;
-    //si no tiene nombre da error
+    //Validaciones del número de la tarjeta
     
-    if(isNaN(value)){
-        showError(element, "debe introducir un número", "pay_form")
+    if(isNaN(value) || value.length != 16){
+        showError(element, "debe introducir 16 dígitos", "pay_form")
         return;
     }else{
+        for (let i = 0; i < value.length; i++) {
+            if(isNaN(value.charAt(i))){
+                showError(element, "debe introducir un dato válido", "pay_form");
+                return;
+            }
+        }
         cleanError(element, "pay_form");
     }
     conditionAccepted();
@@ -187,13 +194,21 @@ var conditionAccepted = function(){
 }
 
 function printTicket(){
+    let pay_selected = document.getElementById("pay_method_sel"); 
     let items = "";
     let total_price = 0;
+
+    if(pay_selected.value == "card"){
+        pay_selected = "Tarjeta"; 
+    }else{
+        pay_selected = "Efectivo";
+    }
+
     Object.keys(shopping_list).forEach(item_name=>{
         items += `${shopping_list[item_name]["name"]} x${shopping_list[item_name]["units"]}  > ${(shopping_list[item_name]["price"]*shopping_list[item_name]["units"]).toFixed(2)}\n`;
         total_price += shopping_list[item_name].units * shopping_list[item_name].price;
     })
-    items += `TOTAL: ${total_price.toFixed(2)}€`;
+    items += `TOTAL: ${total_price.toFixed(2)}€` + "\r\n" + `Forma de pago: ${pay_selected}`;
     alert(items);
 }
 
