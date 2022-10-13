@@ -1,0 +1,59 @@
+*{
+    font-size: 16pt;
+}
+#app{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.shopForm{
+    width: 25rem;
+    padding: 0.5rem;            
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.1rem;
+}
+.shopForm-addItem{background-color: rgb(224, 223, 223);}
+.shopForm-payItems{background-color: rgb(255, 176, 176);}
+
+.shopForm .shopForm__attr:first-child{margin: 0 0 0.5rem 0 !important;}
+.shopForm .shopForm__attr:last-child{margin: 0.5rem 0 0 0 !important;}
+
+.shopForm__attr{
+    width: 100%;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shopForm__attr-error{
+    outline: 0.1rem solid red;
+    border-radius: 0.1rem;
+}
+.shopForm__attr-error[type="checkbox"]{
+    outline: none;
+}
+
+.shopForm__actions{
+    width: 100%;
+    margin: 0.2rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.appAdvice{
+    position: absolute; 
+    font-size: 0.3rem;
+    font-weight: bold;
+    height: 1.65rem;
+    display: flex;
+    justify-content: flex-end;
+}
+.appAdvice>span{    font-size: 0.8rem;}
+.appAdvice-log{color: green;}
+.appAdvice-error{color: red;}
+
+.hidden{
+    display: none;
+}
