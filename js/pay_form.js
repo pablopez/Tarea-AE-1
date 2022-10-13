@@ -49,10 +49,61 @@ function updateCartList(){
 
 function getItemForCartList(item){
     let new_item = document.createElement("div");
+    let actions = document.createElement("div");
+    let item_name = document.createElement("span");
+    
     let quant =  item.units > 1? `x${item.units}` : "";
+
     new_item.className = "cartList__element";
-    new_item.innerHTML = `<div class="cartList__element"><span>${item.name} ${quant}</span><span> | ${(item.price*item.units).toFixed(2)}€</span></div>`;
+    item_name.className = "cartList__element__name";
+    actions.className = "cartList__element__actions";
+
+    item_name.innerHTML = `${item.name} x${item.units}`
+
+    actions.append(getRemoveBtn(item.name), getIncreaseBtn(item, 1),getIncreaseBtn(item, -1));
+    new_item.append(item_name, actions);
+
     return new_item;
+}
+
+function getIncreaseBtn(item, cant){
+    let itemname = item.name;
+    let btn = document.createElement("button");
+    if(cant > 0){
+        btn.className = "cartList__element__actions__increase";
+    }else{
+        btn.className = "cartList__element__actions__decrease";       
+    }
+    btn.innerHTML = cant;
+    btn.addEventListener('click',()=>{
+        Object.keys(shopping_list).forEach(item_name=>{
+            if(shopping_list[item_name]["name"] == itemname){
+                let new_nof_units = shopping_list[item_name]["units"] + cant;
+                if(new_nof_units > 0){
+                    shopping_list[item_name]["units"] = new_nof_units;
+                }
+                updateCartList();
+                return;
+            }
+        })
+    })
+    return btn;
+}
+
+function getRemoveBtn(itemname){
+    let btn = document.createElement("button");
+    btn.className = "cartList__element__actions__remove";
+    btn.innerHTML = "eliminar";
+    btn.addEventListener('click',()=>{
+        Object.keys(shopping_list).forEach(item_name=>{
+            if(shopping_list[item_name]["name"] == itemname){
+                delete shopping_list[item_name];
+                updateCartList();
+                return;
+            }
+        })
+    })
+    return btn;
 }
 
 function payMethodSel(){
