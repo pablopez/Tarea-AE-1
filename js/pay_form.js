@@ -11,6 +11,7 @@ export function shopMenu(){
     //crea el area del formulario de pago
     let pay_form_cont = document.createElement("div");
     let total_price = addShopFormAttr({"name": "total_price", "id": "total_price", "type":"text", "label": "Precio total del carrito: ", "value":"0", disabled : true});
+
     shop_list.className = "cartList";
     shop_list.id = "cart_list";
     pay_form_cont.id = "pay_form_cont";
@@ -71,12 +72,14 @@ function getItemForCartList(item){
 function getIncreaseBtn(item, cant){
     let itemname = item.name;
     let btn = document.createElement("button");
+
     btn.classList.add("cartList__element__actionbtn")
     if(cant > 0){
         btn.classList.add("cartList__element__actionbtn-increase")
     }else{
         btn.classList.add("cartList__element__actionbtn-decrease")
     }
+
     btn.addEventListener('click',()=>{
         Object.keys(shopping_list).forEach(item_name=>{
             if(shopping_list[item_name]["name"] == itemname){
@@ -174,7 +177,6 @@ function printFormPay(with_card = true){
     form.classList.add("shopForm");
     form.classList.add("shopForm-payItems");
 
-    
     form.append(form_actions);
 
     form.addEventListener('submit', (e)=>{
@@ -186,11 +188,13 @@ function printFormPay(with_card = true){
 }
 
 var checkCardName = function(element){
+    //regex que matchea todos los caracteres ASCII que detecta como letras, aunque puede haber caracteres que no lo sean
+    let name = new RegExp('[A-Za-z\\u0080-\\uFFFF -]{2,}');
     let value = element.value;
 
-    //si no tiene nombre da error
-    if(value == ""){
-        showError(element, "debe de introducir el nombre", "add_item_form");
+    //si el nombre no concuerda con la regex, da error
+    if(name.test(value) == false){
+        showError(element, "debe de introducir un titular válido", "add_item_form");
         return;
     }else{
         cleanError(element, "add_item_form");
@@ -202,12 +206,12 @@ var checkCCV = function(element){
     let value = element.value;
     //si no son exactamente 3 números, da error  
     if(value.length != 3){            
-        showError(element, "debe introducir tres numeros", "pay_form");
+        showError(element, "debe introducir tres números", "pay_form");
         return;
     }else{
         for (let i = 0; i < value.length; i++) {
             if(isNaN(value.charAt(i))){
-                showError(element, "debe introducir tres numeros", "pay_form");
+                showError(element, "debe introducir tres números", "pay_form");
                 return;
             }
         }
@@ -249,6 +253,7 @@ function printTicket(){
     let pay_selected = document.getElementById("pay_method_sel"); 
     let items = "";
     let total_price = 0;
+    //Recoger con qué metodo se ha pagado y el total para mostrarlo en el alert.
 
     if(pay_selected.value == "card"){
         pay_selected = "Tarjeta"; 
