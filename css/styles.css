@@ -11,12 +11,15 @@ input{
     background-color: transparent;
     border-bottom: solid 1px rgb(102, 102, 102);
 }
+
 button, label, input, select{
     cursor: pointer;
 }
+
 button:disabled, input:disabled{
     cursor:auto;
 }
+
 button, input[type=submit]{
     border: none;
     background-color: cornflowerblue;
@@ -25,9 +28,11 @@ button, input[type=submit]{
     padding: 0.5rem;
     border-radius: 0.1rem;
 }
+
  input[type=submit]:disabled, button:disabled{
     background-color: #c3c3c3;    
 }
+
 input:focus{
     background-color: #ffffff7e;
 }
@@ -50,15 +55,18 @@ input:focus{
     flex-direction: column;
     border-radius: 0.1rem;
 }
+
 .shopForm-addItem, .shopForm-payItems{
     border: dotted 1px;
     border-radius: 0.5rem;
     display: flex;
     justify-content: space-around;
 }
+
 .shopForm-payItems{
     margin-top: 2rem;
 }
+
 .shopForm .shopForm__attr:first-child{margin: 0 0 0.5rem 0 !important;}
 .shopForm .shopForm__attr:last-child{margin: 0.5rem 0 0 0 !important;}
     .shopForm__attr{
@@ -93,56 +101,56 @@ input:focus{
 .cartList{
     margin: 2rem 0;
 }
-    .cartList__element{
-        padding: 0.2rem 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .cartList__element:hover{background-color: rgba(195, 236, 255, 0.555);}
-        .cartList__element>div{
-            display: flex;
-        }
-        .cartList__element+.cartList__element{
-            border-top: dotted 1px black;
-        }
-        .cartList__element__name{
-            font-size: 1.1rem;
-            text-transform: capitalize;
-            padding-left: 0.5rem;
-        }
-        .cartList__element__actions{}
-            .cartList__element__actionbtn{
-                width: 1.2rem;
-                height: 1.2rem;
-                border-radius: 1.2rem;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: 0.7rem;
-                border: 1px solid #c3c3c3;
-            }
-            .cartList__element__actionbtn-increase{
-                background-color: #fff;
-                background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuMi4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIyIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMjU2IDgwYzAtMTcuNy0xNC4zLTMyLTMyLTMycy0zMiAxNC4zLTMyIDMyVjIyNEg0OGMtMTcuNyAwLTMyIDE0LjMtMzIgMzJzMTQuMyAzMiAzMiAzMkgxOTJWNDMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyczMyLTE0LjMgMzItMzJWMjg4SDQwMGMxNy43IDAgMzItMTQuMyAzMi0zMnMtMTQuMy0zMi0zMi0zMkgyNTZWODB6Ii8+PC9zdmc+");
-            }
-            .cartList__element__actionbtn-increase:hover{
-                background-color: rgba(77, 238, 112, 0.719);
-            }
-            .cartList__element__actionbtn-decrease{     
-                background-color: #fff;
-                background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuMi4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIyIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNNDMyIDI1NmMwIDE3LjctMTQuMyAzMi0zMiAzMkw0OCAyODhjLTE3LjcgMC0zMi0xNC4zLTMyLTMyczE0LjMtMzIgMzItMzJsMzUyIDBjMTcuNyAwIDMyIDE0LjMgMzIgMzJ6Ii8+PC9zdmc+");
-            }
-            .cartList__element__actionbtn-decrease:hover{
-                background-color: rgba(238, 77, 77, 0.719);
-            }
-            .cartList__element__actionbtn-remove{     
-                background-color: transparent;           
-                background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuMi4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIyIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMTM1LjIgMTcuN0wxMjggMzJIMzJDMTQuMyAzMiAwIDQ2LjMgMCA2NFMxNC4zIDk2IDMyIDk2SDQxNmMxNy43IDAgMzItMTQuMyAzMi0zMnMtMTQuMy0zMi0zMi0zMkgzMjBsLTcuMi0xNC4zQzMwNy40IDYuOCAyOTYuMyAwIDI4NC4yIDBIMTYzLjhjLTEyLjEgMC0yMy4yIDYuOC0yOC42IDE3Ljd6TTQxNiAxMjhIMzJMNTMuMiA0NjdjMS42IDI1LjMgMjIuNiA0NSA0Ny45IDQ1SDM0Ni45YzI1LjMgMCA0Ni4zLTE5LjcgNDcuOS00NUw0MTYgMTI4eiIvPjwvc3ZnPg==");
-            }
-            .cartList__element__actionbtn-remove:hover{
-                filter: invert(16%) sepia(67%) saturate(6835%) hue-rotate(357deg) brightness(99%) contrast(122%);
-                background-color: transparent;
-            }
+
+.cartList__element{
+    padding: 0.2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cartList__element:hover{background-color: rgba(195, 236, 255, 0.555);}
+.cartList__element>div{
+    display: flex;
+}
+.cartList__element+.cartList__element{
+    border-top: dotted 1px black;
+}
+.cartList__element__name{
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    padding-left: 0.5rem;
+}
+.cartList__element__actionbtn{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 1.2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.7rem;
+    border: 1px solid #c3c3c3;
+}
+.cartList__element__actionbtn-increase{
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuMi4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIyIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMjU2IDgwYzAtMTcuNy0xNC4zLTMyLTMyLTMycy0zMiAxNC4zLTMyIDMyVjIyNEg0OGMtMTcuNyAwLTMyIDE0LjMtMzIgMzJzMTQuMyAzMiAzMiAzMkgxOTJWNDMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyczMyLTE0LjMgMzItMzJWMjg4SDQwMGMxNy43IDAgMzItMTQuMyAzMi0zMnMtMTQuMy0zMi0zMi0zMkgyNTZWODB6Ii8+PC9zdmc+");
+}
+.cartList__element__actionbtn-increase:hover{
+    background-color: rgba(77, 238, 112, 0.719);
+}
+.cartList__element__actionbtn-decrease{     
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuMi4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIyIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNNDMyIDI1NmMwIDE3LjctMTQuMyAzMi0zMiAzMkw0OCAyODhjLTE3LjcgMC0zMi0xNC4zLTMyLTMyczE0LjMtMzIgMzItMzJsMzUyIDBjMTcuNyAwIDMyIDE0LjMgMzIgMzJ6Ii8+PC9zdmc+");
+}
+.cartList__element__actionbtn-decrease:hover{
+    background-color: rgba(238, 77, 77, 0.719);
+}
+.cartList__element__actionbtn-remove{     
+    background-color: transparent;           
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuMi4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIyIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMTM1LjIgMTcuN0wxMjggMzJIMzJDMTQuMyAzMiAwIDQ2LjMgMCA2NFMxNC4zIDk2IDMyIDk2SDQxNmMxNy43IDAgMzItMTQuMyAzMi0zMnMtMTQuMy0zMi0zMi0zMkgzMjBsLTcuMi0xNC4zQzMwNy40IDYuOCAyOTYuMyAwIDI4NC4yIDBIMTYzLjhjLTEyLjEgMC0yMy4yIDYuOC0yOC42IDE3Ljd6TTQxNiAxMjhIMzJMNTMuMiA0NjdjMS42IDI1LjMgMjIuNiA0NSA0Ny45IDQ1SDM0Ni45YzI1LjMgMCA0Ni4zLTE5LjcgNDcuOS00NUw0MTYgMTI4eiIvPjwvc3ZnPg==");
+}
+.cartList__element__actionbtn-remove:hover{
+    filter: invert(16%) sepia(67%) saturate(6835%) hue-rotate(357deg) brightness(99%) contrast(122%);
+    background-color: transparent;
+}
 
 /* estilos de los avisos*/
 .appAdvice{
