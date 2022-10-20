@@ -1,5 +1,6 @@
 import {addShopFormAttr, launchErrorFor as showError, removeErrorFor as cleanError} from './utils.js'
 import {printTicket} from "./cart_list.js";
+import {reset as resetApp} from './app.js';
 
 export function payMethodSel(){
     // añade la selección del método de pago con un onchange para que varie el formulario según con lo que se quiera pagar
@@ -53,7 +54,7 @@ export function printFormPay(with_card = true){
 
     reset_form.innerHTML = "Restablecer";
     reset_form.type = "button";
-    reset_form.addEventListener("click", ()=>{resetShop(true);})
+    reset_form.addEventListener("click", ()=>{resetApp()})
 
     form_actions.append(submit_btn);
     form_actions.append(reset_form);    

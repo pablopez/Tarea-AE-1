@@ -1,5 +1,5 @@
 
-import {addShopFormAttr, launchErrorFor as showError, removeErrorFor as cleanError} from './utils.js'
+import {addShopFormAttr, sysNotify} from './utils.js'
 import {payMethodSel, printFormPay} from "./pay_manager.js";
 
 var shopping_list = {};
@@ -27,6 +27,7 @@ export function addItem(item){
         if(shopping_list[item.name].price == item.price){
             shopping_list[item.name].units = (item.units + shopping_list[item.name].units);
         }else{
+            sysNotify("hay un error con el precio. El articulo ya está añadido");
             console.error("hay un error con el precio. El articulo ya está añadido")
         }       
     }else{

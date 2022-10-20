@@ -10,7 +10,7 @@ item_manager.js: se encarga de pintar y gestionar todos los eventos del formular
 cart_list.js: se encarga de gestionar toda la lista de la compra. Añade unidades, quita unidades, quita productos.... Elige el modo de pago...
 pay_manager.js: gestiona los formularios de pago, o efectivo o tarjeta. Acaba llamando al print de la lista de la compra para acabar la ejecución en última instancia. 
 
-No se ha usado poo. Nos hemos valido de un object para almacenar todos los items añadidos a modo de mapa. No usamos ids porque entendemos que cada nombre de cada producto es único y si se vuelve a añadir un producto con el mismo nombre, este se suma siempre y cuando sea igual en precio y nombre.
+No se ha usado poo. Nos hemos valido de un object para almacenar todos los items añadidos a modo de mapa. No usamos ids porque entendemos que cada nombre de cada producto es único y si se vuelve a añadir un producto con el mismo nombre, este se suma siempre y cuando sea igual en precio y nombre. En caso de intentar añadir un item con el mismo nombre y distinto precio, hemos tomado la determinación de resetear el formulario de añadir productos y lanzar un aviso de error por consola y un alert.
 
 En cuanto al HTML se ha optado por la creación dinámica del código mediante javascript para tener mayor control sobre los eventos y el DOM de tal manera que el index html solo contiene un div y la llamada a los estilos css y al módulo js principal.
 

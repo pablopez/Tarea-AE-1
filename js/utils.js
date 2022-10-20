@@ -79,3 +79,7 @@ function showAdvice(advice, is_error, element){
         document.getElementById("app").append(cont);
     }    
 }
+
+export function sysNotify(msg){
+    alert(msg);
+}
